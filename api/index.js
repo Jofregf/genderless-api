@@ -26,9 +26,9 @@ const socket = require('./src/Socket/ServerIo');
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   http.listen(process.env.PORT, () => {
-  //  preloader();
+   preloader();
    
-   console.log(`app is running on port ${process.env.PORT}`); // eslint-disable-line no-console
+   console.log(`app is running on port ${process.env.PORT}`);
   });
 });
 
