@@ -21,7 +21,6 @@
 const http = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const preloader = require('./src/preloader');
-const serverIo = require('./src/Socket/ServerIo');
 const socket = require('./src/Socket/ServerIo');
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
