@@ -3,19 +3,20 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT, PGDATABASE, PGUSER, PGPASSWORD, PGHOST
 } = process.env;
 
+const port = process.env.PGPORT ?? 8080;
 
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
+        database: PGDATABASE,
         dialect: "postgres",
-        host: DB_HOST,
-        port: PORT,
-        username: DB_USER,
-        password: DB_PASSWORD,
+        host: PGHOST,
+        port: port,
+        username: PGUSER,
+        password: PGPASSWORD,
         pool: {
           max: 3,
           min: 1,
